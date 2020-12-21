@@ -1,0 +1,6 @@
+asset
+.idea
+venv
+__pycache__
+*.pyc
+lisez-moi.txt
