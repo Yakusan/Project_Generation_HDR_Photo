@@ -110,6 +110,16 @@ def buildRadianceMap(images, g, log_shutterSpeed, weight_func):
 
     return img_HDR
 
+
+def intensityAdjustment(radiance_map, template):
+    h, w, channel = radiance_map.shape
+    hdr_image = np.zeros((h, w, channel))
+    for ch in range(channel):
+        hdr_image[:, :, ch] = radiance_map[:, :, ch] * (np.average(template[:, :, ch]) / np.average(radiance_map[:, :, ch]))
+
+    return hdr_image
+
+
 # Point d'entree
 """
     images            : Tableau contenant les N images
@@ -117,7 +127,7 @@ def buildRadianceMap(images, g, log_shutterSpeed, weight_func):
     smoothness_lambda : Coefficient de lissage de la function g.
                         Sa valeur par défaut est recommandé dans l'article de P.Debevec
 """
-def LDR2HDR(images, log_shutterSpeed, smoothness_lambda=100):
+def LDR2HDR(images, log_shutterSpeed, smoothness_lambda=100, adjustementOpt=False):
     num_channels = images[0].shape[2]
     hdr_image = np.zeros(images[0].shape, dtype=np.float64)
 
@@ -129,6 +139,11 @@ def LDR2HDR(images, log_shutterSpeed, smoothness_lambda=100):
         plot_g.append(g)
 
         hdr_image[:, :, channel] = buildRadianceMap(image_channel, g, log_shutterSpeed, hat_weight)
+
+
+    if adjustementOpt:
+        template = images[len(images) // 2]
+        hdr_image = intensityAdjustment(hdr_image, template)
 
     return hdr_image, plot_g
 

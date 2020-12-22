@@ -1,14 +1,17 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import cv2
-import os
+import glob
 
-def load_images_from_folder(folder):
+def load_images_from_folder(folder, imagesType):
     images = []
-    for filename in os.listdir(folder):
-        img = cv2.imread(os.path.join(folder, filename))
-        if img is not None:
-            images.append(img.astype(np.ubyte))
+    for type in imagesType:
+        filenames = glob.glob(folder + '/' + type)
+        if(len(filenames) > 0):
+            for filename in filenames:
+                images.append(cv2.imread(filename).astype(np.uint8))
+
+            break
 
     return images
 
