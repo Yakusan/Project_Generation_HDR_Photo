@@ -115,7 +115,7 @@ def intensityAdjustment(radiance_map, template):
     h, w, channel = radiance_map.shape
     hdr_image = np.zeros((h, w, channel))
     for ch in range(channel):
-        hdr_image[:, :, ch] = radiance_map[:, :, ch] * (np.average(template[:, :, ch]) / np.average(radiance_map[:, :, ch]))
+        hdr_image[:, :, ch] = radiance_map[:, :, ch] * (np.mean(template[:, :, ch]) / np.mean(radiance_map[:, :, ch]))
 
     return hdr_image
 
