@@ -13,6 +13,6 @@ We can summarize the process as the schema below.
 
 ![Alt text](https://github.com/Yakusan/CHPS0932_TP2_HDR/blob/master/HDR_generation_steps.jpg)
 
-Which give us the following result without tone mapping:
+Which give us the following result without tone mapping (You need to use an HDR viewer to read this file.
 
 ![Alt text](https://github.com/Yakusan/CHPS0932_TP2_HDR/blob/master/result/aligned_adjusted_HDR.hdr)
