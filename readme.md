@@ -15,4 +15,4 @@ We can summarize the process as the schema below.
 
 Which give us the following result without tone mapping:
 
-![Alt text](https://github.com/Yakusan/CHPS0932_TP2_HDR/blob/master/results/aligned_adjusted_HDR.hdr)
+![Alt text](https://github.com/Yakusan/CHPS0932_TP2_HDR/blob/master/result/aligned_adjusted_HDR.hdr)
