@@ -12,7 +12,6 @@ if __name__ == '__main__':
         print('Usage :')
         print('Programme <Dossier des images d\'entrée> '
               '<Nom du fichier de sortie (.hdr)> '
-              'appliquer un ajustement d\'intensité avec l\'EV du milieu '
               '<tableau de temps d\'exposition par image>\n')
 
         print('Nombre d\'argument insuffisant (3 temps d\'exposition minimum')
